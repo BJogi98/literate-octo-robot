@@ -6,6 +6,7 @@ void msdelay(unsigned int time);
 void main(void)
 {
     unsigned char val = 0;
+    unsigned int i;
     INTCON2bits.RBPU = 0;
     ADCON1 = 0x0F;
     TRISD = 0;
@@ -28,7 +29,6 @@ void main(void)
             PORTCbits.RC2 = 1;
             msdelay(100);
             PORTD = 0x80;
-            unsigned int i;
             for (i = 0; i < 8; i++)
             {
                 PORTD = PORTD >> 1;
@@ -40,8 +40,7 @@ void main(void)
             PORTCbits.RC1 = 0;
             PORTCbits.RC2 = 0;
             msdelay(100);
-            PORTD = 0X01;
-            unsigned int i = 0;
+            PORTD = 0x01;
             for (i = 0; i < 8; i++)
             {
                 PORTD = PORTD << 1;
