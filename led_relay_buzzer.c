@@ -1,4 +1,5 @@
-#include <reg51.h>
+#include <p18f4550.h>
+#include "vector_relocate.h"
 
 void msdelay(unsigned int time);
 
