@@ -3,11 +3,11 @@
 
 void msdelay(unsigned int time);
 
-#define LCD_data PORTD;
-#define ctrl PORTE;
-#define rs PORTEbits.RE0;
-#define rw PORTEbits.RE1;
-#define en PORTEbits.RE2;
+#define LCD_data PORTD
+#define ctrl PORTE
+#define rs PORTEbits.RE0
+#define rw PORTEbits.RE1
+#define en PORTEbits.RE2
 
 void init();
 void LCD_command(unsigned char cmd);
