@@ -3,7 +3,7 @@
 
 void msdelay(unsigned int time);
 
-#define LCD_data PORTD
+#define LCD_DATA PORTD
 #define ctrl PORTE
 #define rs PORTEbits.RE0
 #define rw PORTEbits.RE1
@@ -12,15 +12,15 @@ void msdelay(unsigned int time);
 void init();
 void LCD_command(unsigned char cmd);
 void LCD_data(unsigned char data);
-void LCD_write_string(static char *arr);
+void LCD_write_string(static char *str);
 
 void main(void)
 {
-    INTCON2bits.RBPU = 0;
-    ADCON1 = 0x0F;
-
     char var1[] = "welcome";
     char var2[] = "to MC";
+    
+    INTCON2bits.RBPU = 0;
+    ADCON1 = 0x0F;
 
     init();
     msdelay(100);
@@ -51,7 +51,7 @@ void init()
 
 void LCD_command(unsigned char cmd)
 {
-    LCD_data = cmd;
+    LCD_DATA = cmd;
     rs = 0;
     rw = 0;
     en = 1;
@@ -61,7 +61,7 @@ void LCD_command(unsigned char cmd)
 
 void LCD_data(unsigned char data)
 {
-    LCD_data = data;
+    LCD_DATA = data;
     rs = 1;
     rw = 0;
     en = 1;
@@ -69,10 +69,10 @@ void LCD_data(unsigned char data)
     en = 0;
 }
 
-void LCD_write_string(static char *arr)
+void LCD_write_string(static char *str)
 {
-    unsigned int i;
-    while (arr[i] != '\0')
+    unsigned int i = 0;
+    while (str[i] != '\0')
     {
         LCD_data(str[i]);
         msdelay(100);
