@@ -33,9 +33,9 @@ void main(void)
 	T0CON = 0x03;
 	TMR0H = 0x6D;
 	TMR0L = 0x26;
-	INTCONbits.GIE = 1;
-	INTCONbits.TMR0IF = 0;
 	INTCONbits.TMR0IE = 0;
+	INTCONbits.TMR0IF = 0;
+	INTCONbits.GIE = 1;
 	T0CONbits.TMR0ON = 1;
 	while(1)
 	{
